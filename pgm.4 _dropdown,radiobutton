@@ -1,0 +1,38 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WebForm4.aspx.cs" Inherits="WebForm4" %>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <form id="form1" runat="server">
+        <h2>List Controls Example</h2>
+        <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:ListItem>Option1</asp:ListItem>
+            <asp:ListItem>Option2</asp:ListItem>
+        </asp:DropDownList>
+        <br /><br />
+        <asp:RadioButtonList ID="RadioButtonList1" runat="server">
+            <asp:ListItem>Male</asp:ListItem>
+            <asp:ListItem>Female</asp:ListItem>
+        </asp:RadioButtonList>
+        <br /><br />
+        <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" OnClick="ButtonSubmit_Click" />
+        <br /><br />
+        <asp:Label ID="LabelResult" runat="server" ForeColor="Blue" />
+    </form>
+</body>
+</html>
+
+
+//c# code
+
+
+using System;
+
+public partial class WebForm4 : System.Web.UI.Page
+{
+    protected void ButtonSubmit_Click(object sender, EventArgs e)
+    {
+        LabelResult.Text = "Selected DropDown: " + DropDownList1.SelectedValue +
+                           ", Gender: " + RadioButtonList1.SelectedValue;
+    }
+}
