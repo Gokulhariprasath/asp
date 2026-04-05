@@ -1,0 +1,30 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WebForm11.aspx.cs" Inherits="WebForm11" %>
+
+<form id="form1" runat="server">
+    <h2>File Upload</h2>
+    <asp:FileUpload ID="FileUpload1" runat="server" /><br /><br />
+    <asp:Button ID="btnUpload" runat="server" Text="Upload File" OnClick="btnUpload_Click" /><br /><br />
+    <asp:Label ID="lblUpload" runat="server" ForeColor="Blue" />
+</form>
+
+
+//c# code
+
+using System;
+
+public partial class WebForm11 : System.Web.UI.Page
+{
+    protected void btnUpload_Click(object sender, EventArgs e)
+    {
+        if(FileUpload1.HasFile)
+        {
+            string path = Server.MapPath("~/Uploads/" + FileUpload1.FileName);
+            FileUpload1.SaveAs(path);
+            lblUpload.Text = "File uploaded successfully!";
+        }
+        else
+        {
+            lblUpload.Text = "Please select a file to upload.";
+        }
+    }
+}
