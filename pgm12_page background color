@@ -1,0 +1,29 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WebForm12.aspx.cs" Inherits="WebForm12" %>
+
+<!DOCTYPE html>
+<html>
+<body runat="server" id="Body">
+    <form id="form1" runat="server">
+        <h2>Change Background Color</h2>
+        <asp:ListBox ID="ListBoxColors" runat="server" SelectionMode="Single" AutoPostBack="true" OnSelectedIndexChanged="ListBoxColors_SelectedIndexChanged">
+            <asp:ListItem>Red</asp:ListItem>
+            <asp:ListItem>Green</asp:ListItem>
+            <asp:ListItem>Blue</asp:ListItem>
+            <asp:ListItem>Yellow</asp:ListItem>
+        </asp:ListBox>
+    </form>
+</body>
+</html>
+
+
+//C# CODE 
+
+using System;
+
+public partial class WebForm12 : System.Web.UI.Page
+{
+    protected void ListBoxColors_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Body.Attributes["style"] = "background-color:" + ListBoxColors.SelectedValue;
+    }
+}
